@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	 <style>
+    </style>
+	<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+
+	<script type="text/javascript">
+$(document).ready(function () {
+    function init() {
+        if (localStorage["name"]) {
+            $('#name').val(localStorage["name"]);
+        }
+        if (localStorage["email"]) {
+            $('#email').val(localStorage["email"]);
+        }
+        if (localStorage["number"]) {
+            $('#number').val(localStorage["number"]);
+        }
+    }
+    init();
+});
+
+$('.stored').keyup(function () {
+    localStorage[$(this).attr('name')] = $(this).val();
+});
+
+$('#localStorageTest').submit(function() {
+    localStorage.clear();
+});
+</script>
+    
+	</head>
+	<body>
+	<h1>Lab 14 - Jason Henderson</h1>
+	<h3></h3>
+
+<form id="localStorageTest" method="post" action="">
+    <label>Name:</label>
+    <input type="text" name="name" id="name" class="stored" value="" />
+
+    <label>Email:</label>
+    <input type="email" name="email" id="email" class="stored" value="" />
+
+    <label>Message:</label>
+    <textarea text="number" id="number" class="stored"></textarea>
+
+    <input type="submit" class="demo-button" value="Submit" />
+</form>
+	</body>
+<html>
